@@ -1,5 +1,14 @@
 import React from "react";
 import CollapseWrapper from "../common/collapse";
+
+const AddNum = ({ children }) => {
+    return React.Children.map(children, (child, index) => (
+        <div className="d-flex">
+            <div className="mx-2">{index + 1 + "."}</div>
+            {React.cloneElement(child)}
+        </div>
+    ));
+};
 const ChildrenExercise = () => {
     return (
         <CollapseWrapper title="Упражнение">
@@ -10,10 +19,11 @@ const ChildrenExercise = () => {
                 <code>React.Children.map</code> так и{" "}
                 <code>React.Children.toArray</code>
             </p>
-
-            <Component />
-            <Component />
-            <Component />
+            <AddNum>
+                <Component />
+                <Component />
+                <Component />
+            </AddNum>
         </CollapseWrapper>
     );
 };
