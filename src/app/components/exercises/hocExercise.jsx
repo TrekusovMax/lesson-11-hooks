@@ -1,7 +1,14 @@
 import React from "react";
+import CardWrapper from "../common/Card";
 import CollapseWrapper from "../common/collapse";
+import Divider from "../common/divider";
+import SmallTitle from "../common/typografy/smallTitle";
+
+import SimpleComponent from "./HOC/simpleComponent";
+import withLogin from "./HOC/withLogin";
 
 const HocExercise = () => {
+    const ComponentWithAuth = withLogin(SimpleComponent);
     return (
         <CollapseWrapper title="Упражнение">
             <p className="mt-3">
@@ -47,6 +54,11 @@ const HocExercise = () => {
                     <code>user</code> в <code>localStorage</code>
                 </li>
             </ul>
+            <CardWrapper>
+                <SmallTitle>Компонент из задания</SmallTitle>
+                <Divider />
+                <ComponentWithAuth />
+            </CardWrapper>
         </CollapseWrapper>
     );
 };
